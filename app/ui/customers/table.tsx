@@ -49,11 +49,15 @@ export default async function CustomersTable({
                     <div className="flex w-full items-center justify-between border-b py-5 text-slate-50">
                       <div className="flex w-1/2 flex-col ">
                         <p className="text-xs">Pending</p>
-                        <p className="font-medium">{customer.total_pending}</p>
+                        <p className="font-medium text-yellow-400">
+                          {customer.total_pending}
+                        </p>
                       </div>
                       <div className="flex w-1/2 flex-col">
                         <p className="text-xs">Paid</p>
-                        <p className="font-medium">{customer.total_paid}</p>
+                        <p className="font-medium text-green-400">
+                          {customer.total_paid}
+                        </p>
                       </div>
                     </div>
                     <div className="pt-4 text-sm text-slate-50">
@@ -104,10 +108,10 @@ export default async function CustomersTable({
                       <td className="whitespace-nowrap bg-slate-900 px-4 py-5 text-sm">
                         {customer.total_invoices}
                       </td>
-                      <td className="whitespace-nowrap bg-slate-900 px-4 py-5 text-sm">
+                      <td className="whitespace-nowrap bg-slate-900 px-4 py-5 text-sm text-yellow-400">
                         {customer.total_pending}
                       </td>
-                      <td className="whitespace-nowrap bg-slate-900 px-4 py-5 text-sm group-first-of-type:rounded-md group-last-of-type:rounded-md">
+                      <td className="whitespace-nowrap bg-slate-900 px-4 py-5 text-sm text-green-400 group-first-of-type:rounded-md group-last-of-type:rounded-md">
                         {customer.total_paid}
                       </td>
                     </tr>
