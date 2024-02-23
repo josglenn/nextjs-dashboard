@@ -13,10 +13,6 @@ export default async function CustomersTable({
 }) {
   return (
     <div className="w-full">
-      <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>
-        Customers
-      </h1>
-      <Search placeholder="Search customers..." />
       <div className="mt-6 flow-root">
         <div className="overflow-x-auto">
           <div className="inline-block min-w-full align-middle">
@@ -49,13 +45,25 @@ export default async function CustomersTable({
                     <div className="flex w-full items-center justify-between border-b py-5 text-slate-50">
                       <div className="flex w-1/2 flex-col ">
                         <p className="text-xs">Pending</p>
-                        <p className="font-medium text-yellow-400">
+                        <p
+                          className={`font-medium ${
+                            +customer.total_pending === 0
+                              ? 'text-slate-400'
+                              : 'text-yellow-400'
+                          }`}
+                        >
                           {customer.total_pending}
                         </p>
                       </div>
                       <div className="flex w-1/2 flex-col">
                         <p className="text-xs">Paid</p>
-                        <p className="font-medium text-green-400">
+                        <p
+                          className={`font-medium ${
+                            +customer.total_paid === 0
+                              ? 'text-slate-400'
+                              : 'text-green-400'
+                          }`}
+                        >
                           {customer.total_paid}
                         </p>
                       </div>
@@ -108,10 +116,22 @@ export default async function CustomersTable({
                       <td className="whitespace-nowrap bg-slate-900 px-4 py-5 text-sm">
                         {customer.total_invoices}
                       </td>
-                      <td className="whitespace-nowrap bg-slate-900 px-4 py-5 text-sm text-yellow-400">
+                      <td
+                        className={`whitespace-nowrap bg-slate-900 px-4 py-5 text-sm ${
+                          +customer.total_pending === 0
+                            ? 'text-slate-400'
+                            : 'text-yellow-400'
+                        }`}
+                      >
                         {customer.total_pending}
                       </td>
-                      <td className="whitespace-nowrap bg-slate-900 px-4 py-5 text-sm text-green-400 group-first-of-type:rounded-md group-last-of-type:rounded-md">
+                      <td
+                        className={`whitespace-nowrap bg-slate-900 px-4 py-5 text-sm ${
+                          +customer.total_paid === 0
+                            ? 'text-slate-400'
+                            : 'text-green-400'
+                        } group-first-of-type:rounded-md group-last-of-type:rounded-md`}
+                      >
                         {customer.total_paid}
                       </td>
                     </tr>
